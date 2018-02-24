@@ -1,0 +1,38 @@
+<app-loading *ngIf="isLoading"></app-loading>
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+  <a class="navbar-brand" href="#">Forum</a>
+  <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="navbar-collapse collapse" id="navbarsExample03">
+    <ul class="navbar-nav mr-auto">
+          </ul>
+    <form class="form-inline my-2 my-md-0">
+      <ul class="navbar-nav mr-auto" *ngIf="!userIsLogged">
+        <li class="nav-item">
+          <a class="nav-link" href="#" (click)="openSignIn()">Sign in</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" (click)="openSignUp()">Sign up</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav mr-auto" *ngIf="userIsLogged">
+        <li class="nav-item" ngbDropdown>
+          <a class="nav-link dropdown-toggle" href="#" id="ddCategory" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+            ngbDropdownToggle>{{user.name}}</a>
+          <div class="dropdown-menu" aria-labelledby="ddCategory" ngbDropdownMenu>
+            <a class="dropdown-item" href="#" (click)="logout()">Logout</a>
+          </div>
+        </li>
+
+      </ul>
+    </form>
+  </div>
+</nav>
+
+<div class="container-fluid containerMainly">
+  <router-outlet></router-outlet>
+</div>
+<toaster-container [toasterconfig]="toasterconfig"></toaster-container>

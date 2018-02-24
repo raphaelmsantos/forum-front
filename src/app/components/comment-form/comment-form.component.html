@@ -1,0 +1,18 @@
+<form (ngSubmit)="save()">
+    <div class="modal-header">
+      <h4 class="modal-title">Comment</h4>
+      <button type="button" class="close" aria-label="Close" (click)="activeModal.close()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">      
+      <div class="form-group">
+        <label for="content">Content</label>
+        <textarea [(ngModel)]="comment.content" id="content" name="content" class="form-control"></textarea>        
+      </div>      
+    </div>
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="button" class="btn btn-outline-dark" (click)="activeModal.close()">Close</button>
+    </div>
+  </form>
